@@ -48,19 +48,17 @@ The easiest way to measure a resistive sensor is to connect one end to power and
 
 
 
-
-
-
-
-
-
 ![image](https://user-images.githubusercontent.com/36288975/163532979-a2a5cb5c-f495-442c-843e-bebb82737a35.png)
 
 
 
 ### FIGURE-03 CIRCUIT DIAGRAM
 
+![image](https://github.com/santhanalakshmi04/EXPERIMENT-NO--04-PRESSURE-MEASUREMENT-USING-ARDUINO-AIM-To-interface-an-FSR-force-sensitive-resist/assets/119475762/74e87222-62c9-48de-a459-f12f89e20233)
 
+
+
+![image](https://github.com/santhanalakshmi04/EXPERIMENT-NO--04-PRESSURE-MEASUREMENT-USING-ARDUINO-AIM-To-interface-an-FSR-force-sensitive-resist/assets/119475762/e6551a65-9097-4f7c-a028-d9b8219c25a1)
 
 ### PROCEDURE:
 1.	Connect the circuit as per the circuit diagram 
@@ -76,26 +74,47 @@ The easiest way to measure a resistive sensor is to connect one end to power and
 
 
 ### PROGRAM 
- *your roll no 
- * your name 
- * department and year 
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+ ROLL NO : 212222240091
+ NAME : K.SANTHANA LAKSHMI
+ DEPT : AI-ML
+```
+int fsr;
+int LED=7;
+void setup()
+{
+ pinMode(LED, OUTPUT);
+ Serial.begin(9600);
+}
 
-![image](https://user-images.githubusercontent.com/36288975/188804653-a3154e8e-2655-46f2-9dcd-f425dd1ba109.png)
+void loop()
+{
+ fsr=analogRead(A0);
+ Serial.print("raw value=");
+ Serial.println(fsr);
+ delay(1000);
+ int m;
+ m=map(fsr,0,159,0,10);
+ Serial.print("mapped value=");
+ Serial.println(m);
+ delay(1000);
+ 
+ if(m>5)
+ {
+   digitalWrite(LED,HIGH);
+   delay(500);
+   digitalWrite(LED,LOW);
+   delay(500);
+ }
+   
+}
+
+``` 
+
+ ![image](https://github.com/santhanalakshmi04/EXPERIMENT-NO--04-PRESSURE-MEASUREMENT-USING-ARDUINO-AIM-To-interface-an-FSR-force-sensitive-resist/assets/119475762/11c54e08-1ea0-448b-ac04-1c2117d2c3cb)
+
+![image](https://github.com/santhanalakshmi04/EXPERIMENT-NO--04-PRESSURE-MEASUREMENT-USING-ARDUINO-AIM-To-interface-an-FSR-force-sensitive-resist/assets/119475762/6f555ee3-34f3-4f16-8338-514682c49675)
+
 
 
 ### TABLE -02 standard deviation table 
